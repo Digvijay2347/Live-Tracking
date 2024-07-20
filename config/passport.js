@@ -1,10 +1,9 @@
-require('dotenv').config();
-
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const JWTStrategy = require('passport-jwt').Strategy;
 const ExtractJWT = require('passport-jwt').ExtractJwt;
 const jwt = require('jsonwebtoken');
+require('dotenv').config(); // Load environment variables from .env file
 
 // In-memory store for users
 const users = {};
@@ -20,7 +19,7 @@ passport.use(new GoogleStrategy({
 
 const opts = {
     jwtFromRequest: ExtractJWT.fromAuthHeaderAsBearerToken(),
-    secretOrKey: 'jwt_secret_key'
+    secretOrKey: process.env.JWT_SECRET_KEY
 };
 
 passport.use(new JWTStrategy(opts, (jwtPayload, done) => {
