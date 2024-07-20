@@ -1,0 +1,309 @@
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: rgba(245, 245, 245, 0.8);
+    --text-color: #333;
+    --error-color: #e74c3c;
+    --success-color: #2ecc71;
+    --warning-color: #f39c12;
+    --background-color: #ffffff;
+}
+[data-theme="dark"] {
+    --primary-color: #2980b9;
+    --secondary-color: rgba(30, 30, 30, 0.8);
+    --text-color: #f5f5f5;
+    --error-color: #c0392b;
+    --success-color: #27ae60;
+    --warning-color: #d35400;
+    --background-color: #121212;
+}
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    overflow: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+body {
+    background-color: var(--background-color);
+}
+#video-background {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -1;
+    object-fit: cover;
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+.container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin-top: 1px;
+}
+.login-box {
+    background: var(--secondary-color);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 400px;
+    backdrop-filter: blur(10px);
+    margin-bottom: 2rem; /* Adds space below the login box */
+}
+.login-box h1 {
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    text-align: center;
+    background: linear-gradient(to right, #5497c1, #0bb51f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.3s ease;
+}
+.login-box h1:hover {
+    transform: scale(1.05);
+    background: linear-gradient(to right, #ec4508, #554972);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.form-group {
+    margin-bottom: 1rem;
+}
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+.form-group .password-toggle {
+    position: relative;
+}
+.form-group .password-toggle i {
+    position: absolute;
+    top: 50%;
+    right: 0.75rem;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--text-color);
+}
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 1rem;
+}
+.btn {
+    display: inline-block;
+    width: 90%;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 1rem;
+}
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #fff;
+}
+.btn-primary:hover {
+    background-color: #3a7bd5;
+}
+.btn-google {
+    background-color: #db4437;
+    color: #fff;
+}
+.btn-google:hover {
+    background-color: #c1351d;
+}
+.btn-google i {
+    margin-right: 0.5rem;
+}
+.signup-link {
+    display: block;
+    margin-top: 1rem;
+    text-align: center;
+}
+.signup-link a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+.signup-link a:hover {
+    text-decoration: underline;
+}
+.error-message {
+    color: var(--error-color);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+.error-message.show {
+    opacity: 1;
+}
+.password-strength {
+    height: 5px;
+    margin-top: 5px;
+    border-radius: 2px;
+    transition: width 0.3s ease;
+}
+.custom-checkbox {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+}
+.custom-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+.checkmark {
+    height: 20px;
+    width: 20px;
+    background-color: var(--background-color);
+    border: 1px solid var(--text-color);
+    border-radius: 4px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+.custom-checkbox:hover input ~ .checkmark {
+    background-color: var(--secondary-color);
+}
+.custom-checkbox input:checked ~ .checkmark {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+.checkmark:after {
+    content: "\2714";
+    display: none;
+    color: white;
+}
+.custom-checkbox input:checked ~ .checkmark:after {
+    display: block;
+}
+.dark-mode-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+}
+.contact-id {
+    position: absolute;
+    top: 0;
+    left: -300px;
+    width: 300px;
+    background-color: var(--secondary-color);
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    transition: left 0.3s ease;
+    z-index: -1; /* move it behind the login box */
+}
+
+.contact-id h1 {
+    font-size: 1.25rem;
+    margin: 0;
+    padding: 0.5rem 0;
+}
+
+.contact-id ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-id li {
+    margin-bottom: 0.5rem;
+}
+
+.contact-id a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.contact-id a:hover {
+    text-decoration: underline;
+}
+.details-btn {
+    margin: 1rem auto; /* center the button horizontally */
+    display: block; /* make it a block element to set width and margin */
+    width: 150px; /* set a fixed width for the button */
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center; /* center the text inside the button */
+}
+
+.details-btn:hover {
+    background-color: #3a7bd5;
+}
+.close-btn {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: #0bb51f;
+}
+
+.close-btn:hover {
+    color: #ccc;
+}
+
+#live-loc{
+    margin-bottom: 1px;
+    font-size: 3rem;
+    color: #ffffff;
+    text-align: center;
+    
+}

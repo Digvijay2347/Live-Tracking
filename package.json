@@ -1,0 +1,28 @@
+{
+  "name": "chat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "http": "^0.0.1-security",
+    "i18next": "^23.12.2",
+    "i18next-express-middleware": "^2.0.0",
+    "i18next-fs-backend": "^2.3.1",
+    "jsonwebtoken": "^9.0.2",
+    "passport": "^0.7.0",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-jwt": "^4.0.1",
+    "socket.io": "^4.7.5"
+  }
+}
