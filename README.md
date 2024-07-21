@@ -87,12 +87,15 @@ Live Tracking is a web application designed to provide real-time location tracki
 
 
 ## Video Demo
-[![Watch the demo video](images/rs.png)](images/sds.mp4)
-
-Or [download the video](images/sds.mp4) to view it directly.
 Check out the video demo of the Live Tracking app:
+<video src="https://github.com/user-attachments/assets/b3685cce-8766-4766-92ad-42931feab991" loop muted autoplay>
+  Your browser does not support the video tag.
+</video>
 
-![Watch the demo video](https://www.youtube.com/watch?v=C4d_3kcq5jc&t=1s)
+
+
+
+
 ## Contributing
 
 1. **Fork the repository:**
